@@ -1,0 +1,11 @@
+cff-version: 1.0.0
+message: "If you use this software, please cite it as below."
+authors:
+- family-names: "de Winter"
+  given-names: "Niels J."
+  orcid: "https://orcid.org/0000-0002-1453-5407"
+title: "Jupiter Notebooks for computer lab exercises for the course Statistics and Data Analysis at the VU Amsterdam"
+version: 1.0.0
+doi: 
+date-released: 2024-03-26
+url: "https://github.com/nielsjdewinter/VU_Data_analysis_Jupyter_labs"
