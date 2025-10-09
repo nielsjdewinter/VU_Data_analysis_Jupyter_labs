@@ -7588,7 +7588,7 @@ Statistics and Data Analysis Course</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [3]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [2]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">lab05</span> <span class="o">=</span> <span class="n">loadmat</span><span class="p">(</span><span class="s1">'lab05.mat'</span><span class="p">)</span>
@@ -7614,10 +7614,11 @@ Statistics and Data Analysis Course</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [5]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">lab05</span><span class="p">[</span><span class="s1">'data'</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">lab05</span><span class="p">[</span><span class="s1">'data'</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="c1"># OPTIONAL: You can easily check the shape of the data matrix here.</span>
 </pre></div>
 </div>
 </div>
@@ -7637,6 +7638,7 @@ Statistics and Data Analysis Course</p>
  [1.060e+01 1.486e+03 2.000e+00 4.400e-01 1.100e-01]
  [1.080e+01 1.439e+03 2.000e+00 5.600e-01 9.300e-02]
  [8.600e+00 1.740e+03 2.000e+00 9.400e-01 9.100e-02]]
+(426, 5)
 </pre>
 </div>
 </div>
@@ -7692,7 +7694,7 @@ Statistics and Data Analysis Course</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [7]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [4]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">scaler</span> <span class="o">=</span> <span class="n">preprocessing</span><span class="o">.</span><span class="n">StandardScaler</span><span class="p">()</span> <span class="c1"># Define the preprocessing function we will apply to our data</span>
@@ -7751,7 +7753,7 @@ Statistics and Data Analysis Course</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [9]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [5]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">pca</span> <span class="o">=</span> <span class="n">PCA</span><span class="p">()</span> <span class="c1"># We first call the PCA function to create our PCA object</span>
@@ -7759,6 +7761,7 @@ Statistics and Data Analysis Course</p>
 <span class="n">loadings</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">pca</span><span class="o">.</span><span class="n">components_</span><span class="p">)</span> <span class="c1"># Create a new object with loadings in columns ordered from highest to least amount of explained variance.</span>
 <span class="n">percent_explained</span> <span class="o">=</span> <span class="mi">100</span> <span class="o">*</span> <span class="n">pca</span><span class="o">.</span><span class="n">explained_variance_</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">pca</span><span class="o">.</span><span class="n">explained_variance_</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">percent_explained</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">pca</span><span class="o">.</span><span class="n">explained_variance_</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -7772,6 +7775,7 @@ Statistics and Data Analysis Course</p>
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
 <pre>[33.7030202  26.14073149 21.84134416 11.48326816  6.831636  ]
+5.011764705882351
 </pre>
 </div>
 </div>
@@ -8060,7 +8064,7 @@ Looks like the signal originating from summer.</p>
 Observation: Positive loading of drainage, Chlorophyl and N.
 Negative loading of temperature and P.
 This could be more associated with winter.
-However, since PC1 and PC2 are by definition uncorrelated, this may be a bit unlikely (we expect an anticorrelation between the summer and winter signal under normal circumstances).</p>
+However, since PC1 and PC2 are by definition uncorrelated, this may be a bit unlikely (we expect an anticorrelation between the summer and winter signal under normal circumstances). Perhaps a "spring signal" is a better interpretation for this principle component. The high drainage loading can be explained by the influx of meltwater from glaciers during this season.</p>
 <p>PC3
 Observation: Strong positive loading of N and P.
 Negative loading of drainage.
@@ -8150,7 +8154,7 @@ This really captures the influx and concentration of pollutants (N and P).</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [37]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [41]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">original_corr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">corrcoef</span><span class="p">(</span><span class="n">lab05</span><span class="p">[</span><span class="s1">'data'</span><span class="p">],</span> <span class="n">rowvar</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="c1"># Create a correlation matrix of the original data</span>
@@ -8198,9 +8202,9 @@ This really captures the influx and concentration of pollutants (N and P).</p>
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[37]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[41]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
-<pre>&lt;matplotlib.colorbar.Colorbar at 0x15d7360b9e0&gt;</pre>
+<pre>&lt;matplotlib.colorbar.Colorbar at 0x15d74a83c50&gt;</pre>
 </div>
 </div>
 <div class="jp-OutputArea-child">
