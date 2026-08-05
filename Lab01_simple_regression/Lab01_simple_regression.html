@@ -7528,7 +7528,7 @@ Statistics and Data Analysis Course</p>
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h2 id="Introduction">Introduction<a class="anchor-link" href="#Introduction">¶</a></h2><p>In this lab assignment, you will experiment with the tools in Python used to test correlation and regression.
 We will start with simple correlation, linear and non-linear regression and work towards multiple and logistic regression in the following Lab assignment.</p>
-<p>This notebook format makes it possible to include live code in between the text for this assignment. Note that you can also make the assignment by copying the code from the code blocks (marked by <code>In []</code>) into your own Python environment (such as Spyder) and run the code there (shortcut: <strong>CTRL + ENTER</strong> on Windows/Linux and <strong>CMD + ENTER</strong> on Mac). Working in this Jupyter notebook probably helps you to keep your code more organized.</p>
+<p>This notebook format makes it possible to include live code in between the text for this assignment. Note that you can also make the assignment by copying the code from the code blocks (marked by <code>In []</code>) into your own Python environment (such as Spyder) and run the code there (shortcut: <strong>CTRL + ENTER</strong> on Windows/Linux and <strong>CMD + ENTER</strong> on Mac). Working in this Jupyter notebook hopefully helps you to keep your code more organized.</p>
 </div>
 </div>
 </div>
@@ -7587,7 +7587,7 @@ We will start with simple correlation, linear and non-linear regression and work
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [2]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">'Lab01a.csv'</span><span class="p">)</span> <span class="c1"># Load the data for this assignment into Python and in the Jupyter environment.</span>
@@ -7802,10 +7802,20 @@ We will start with simple correlation, linear and non-linear regression and work
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Calculate Pearson's correlation between date (in months) and temperature anomaly</span>
 
-
 <span class="c1"># Calculate Pearson's correlation between date (in months) and pCO2</span>
 </pre></div>
 </div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=d7807ed3">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p><strong>Question 3 (for the new correlations):</strong> What do you think of this result? Is there a positive or a negative correlation between these two variables? Do you think the correlation is strong?</p>
 </div>
 </div>
 </div>
@@ -7842,6 +7852,17 @@ We will start with simple correlation, linear and non-linear regression and work
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Bonus exercise: Try calculating correlation coefficients between variables in df using other methods</span>
 </pre></div>
 </div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=449d70b1">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p><strong>Comments on Bonus Exercise:</strong></p>
 </div>
 </div>
 </div>
@@ -7908,7 +7929,7 @@ We will start with simple correlation, linear and non-linear regression and work
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p><strong>Exercise 2:</strong> To test whether you understand how to plot <em>scatter plots</em>, create plots of pCO2 vs time and pCO2 vs Temperature anomany in the two code cells below by modifying the code in the cell above used to plot Temperature anomaly vs time. Differentiate these scatter plots from each other by changing plot aesthetics such as the type of plotting symbol (<code>marker</code>), the color of the symbols (<code>col</code>) or the shading of the symbol (<code>alpha</code>). Use the help statement you ran in the previous code cell to guide your coding.</p>
+<p><strong>Exercise 2:</strong> To test whether you understand how to plot <em>scatter plots</em>, create plots of pCO2 vs time and pCO2 vs Temperature anomany in the two code cells below by modifying the code in the cell above used to plot Temperature anomaly vs time. Differentiate these scatter plots from each other by changing plot aesthetics such as the type of plotting symbol (<code>marker</code>), the color of the symbols (<code>col</code>) or the shading of the symbol (<code>alpha</code>). Use the help statement you ran in the previous code cell or search information on these functions online to guide your coding.</p>
 </div>
 </div>
 </div>
@@ -7956,7 +7977,7 @@ We will start with simple correlation, linear and non-linear regression and work
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [8]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">regression1</span> <span class="o">=</span> <span class="n">smf</span><span class="o">.</span><span class="n">ols</span><span class="p">(</span><span class="n">formula</span> <span class="o">=</span> <span class="s2">"df.Temperature_anomaly ~ df.pCO2"</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">df</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
@@ -7973,7 +7994,7 @@ We will start with simple correlation, linear and non-linear regression and work
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p>Another new function! Make sure you understand what this one does as well. You know by now how to search for its documentation if you feel lost.</p>
-<p>The object <code>regression1</code> contains all the information about our regression model. Let's print the regression coefficients:</p>
+<p>The new object <code>regression1</code>, which we have just created, contains all the information about our regression model. Let's print the regression coefficients:</p>
 </div>
 </div>
 </div>
@@ -8046,8 +8067,8 @@ We will start with simple correlation, linear and non-linear regression and work
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Plot the result of simple linear regression between pCO2 and temperature</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">pCO2</span><span class="p">,</span> <span class="n">df</span><span class="o">.</span><span class="n">Temperature_anomaly</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">'red'</span><span class="p">,</span> <span class="n">marker</span> <span class="o">=</span> <span class="s1">'+'</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">'Atmospheric pCO2 (ppmV)'</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">'Temperature anomany (degrees C)'</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">pCO2</span><span class="p">,</span> <span class="n">regression1</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">regression1</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">df</span><span class="o">.</span><span class="n">pCO2</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">'blue'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">'Temperature anomaly (degrees C)'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">pCO2</span><span class="p">,</span> <span class="n">regression1</span><span class="o">.</span><span class="n">params</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">regression1</span><span class="o">.</span><span class="n">params</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">df</span><span class="o">.</span><span class="n">pCO2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">'blue'</span><span class="p">)</span> <span class="c1"># We use the "iloc" function to select the regression coefficients from the regression results. The first coefficient is the intercept, the second is the slope of the regression line.</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span> <span class="c1"># Show the plot</span>
 </pre></div>
 </div>
@@ -8109,6 +8130,7 @@ We will start with simple correlation, linear and non-linear regression and work
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p>OK, that's a lot of information... Python just calculated a whole bunch of statistical metrics for this regression. The ones we are interested in are the R<sup>2</sup> value (<code>R-squared</code>), the F-value (<code>F-statistic</code>) and the p-value (or 'probability': <code>Prob (F-statistic)</code>). You can also find the slope and intercept in this overview, as well as statistics on how certain we are about them (see <code>std err</code> values).</p>
+<p>Take a good look at this output, as it is <strong>one of the most important pieces of Python output you will work with</strong> in the Correlation and Regression section of this course. You will see many more outputs like these and by the end of the course, you should be familiar with this and know how to get information from this output that helps you judge the quality of a regression.</p>
 </div>
 </div>
 </div>
@@ -8185,7 +8207,7 @@ We will start with simple correlation, linear and non-linear regression and work
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p><strong>Question 9:</strong> The <a href="https://www.ipcc.ch/report/ar6/wg1/"><strong>Intergovernmental Panel on Climate Change (IPCC)</strong></a> considers various <strong>Shared Socioeconomic Pathways</strong> in their projections for future climate. One of the more moderate scenarios (SSP2-4.5) predicts an atmospheric CO2 concentration of about 500 ppmV in the year 2100. Using the relationship you created in this exercise, what would you expect the temperature anomaly (global warming relative to the period 1951-1980) to be by the end of this century? Is this a realistic estimate? Can you see any problems with this way of projecting future climate?</p>
+<p><strong>Question 9:</strong> The <a href="https://www.ipcc.ch/report/ar6/wg1/"><strong>Intergovernmental Panel on Climate Change (IPCC)</strong></a> considers various <strong>Shared Socioeconomic Pathways</strong> in their projections for future climate. Secario SSP2-4.5, one of the more realistic scenarios given our recent emissions, predicts an atmospheric CO2 concentration of about 500 ppmV in the year 2100. Using the relationship you created in this exercise, what would you expect the temperature anomaly (global warming relative to the period 1951-1980) to be by the end of this century? Is this a realistic estimate? Can you see any problems with this way of projecting future climate?</p>
 </div>
 </div>
 </div>
@@ -8218,7 +8240,7 @@ We will start with simple correlation, linear and non-linear regression and work
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [12]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">df2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">'Lab01b.csv'</span><span class="p">)</span> <span class="c1"># Load the second dataset for this assignment in the Jupyter environment.</span>
@@ -8234,7 +8256,7 @@ We will start with simple correlation, linear and non-linear regression and work
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>This dataset contains annual average values of <code>pCO2</code> (atmospheric CO2 concentrations; in ppmV), <code>pCH4</code> (methane concentration; in ppb), <code>pN2O</code> (nitrous oxide concentration; in ppb) and <code>SST</code> (sea surface temperature anomalies; in degrees C relative to 1951-1980).</p>
+<p>This dataset contains annual average values since 1850 of <code>pCO2</code> (atmospheric CO2 concentrations; in ppmV), <code>pCH4</code> (methane concentration; in ppb), <code>pN2O</code> (nitrous oxide concentration; in ppb) and <code>SST</code> (sea surface temperature anomalies; in degrees C relative to 1951-1980). The dataset is again sourced from Our World in Data.</p>
 <p><strong>Exercise 4:</strong> You can inspect this dataset using the <code>head()</code> or <code>print()</code> commands you used before. Do so using the code cell below.</p>
 </div>
 </div>
@@ -8260,7 +8282,7 @@ We will start with simple correlation, linear and non-linear regression and work
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p><strong>Question 10:</strong> What is striking about this dataset?</p>
+<p><strong>Question 10:</strong> What is striking about this dataset? Do you notice something in your inspection which you did not notice in the previous dataset?</p>
 </div>
 </div>
 </div>
@@ -8284,7 +8306,7 @@ We will start with simple correlation, linear and non-linear regression and work
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p>CO2, CH4 and N2O are all greenhouse gases, so we expect them to covary with temperature.</p>
 <p><strong>Exercise 5:</strong> Use the code cell below to calculate the Pearson's correlation coefficient between each of the greenhouse gases and temperature for the time period 1850-2022. You can use the <code>corr</code> function and the code you used in Part 1 of this assignment.</p>
-<p>Do you think the presence of <code>NaN</code> values poses a problem? Hint: Check the <code>help()</code> entry for the <code>corr</code> function you printed above to check this. It is good to be aware of empty values in your dataset, as they can have a big impact on your data analysis!</p>
+<p>The <code>NaN</code> values you may have spotted in this dataset mean "Not a Number", and they are Python's way of indicating that there are empty entries in the dataset. Do you think the presence of <code>NaN</code> values poses a problem? Hint: Check the <code>help()</code> entry for the <code>corr</code> function you printed above to check this. It is good to be aware of empty values in your dataset, as they can have a big impact on your data analysis!</p>
 </div>
 </div>
 </div>
@@ -8298,9 +8320,7 @@ We will start with simple correlation, linear and non-linear regression and work
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Calculate Pearson's correlation between pCO2 and temperature anomaly</span>
 
-
 <span class="c1"># Calculate Pearson's correlation between pCH4 and temperature anomaly</span>
-
 
 <span class="c1"># Calculate Pearson's correlation between pN2O and temperature anomaly</span>
 </pre></div>
@@ -8447,7 +8467,7 @@ We will start with simple correlation, linear and non-linear regression and work
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [13]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">PolynomialFeatures</span> <span class="c1"># Import functions needed for polynomial preprocessing</span>
@@ -8464,7 +8484,7 @@ We will start with simple correlation, linear and non-linear regression and work
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p>We can use the same OLS function as we used for linear regression to do a polynomial regression, but we need to pre-process our data first. For this we use the <code>PolynomialFeatures</code> function we just loaded. We will start by approximating the pCO2 data with a second degree polynomial function. Such a function contains a constant, a first order term and a second order term, yielding a function of the form:</p>
-<p>$(y = a + b1 * x + b2 * x^2)$</p>
+<p>$y = a + b1 * x + b2 * x^2$</p>
 <p>Our OLS model will estimate values for <code>a</code>, <code>b1</code> and <code>b2</code>, but we will first transform our independent variable (in this case <code>Year</code>) to let Python know we will fit a polynomial function. Use the code below to do this, and inspect the resulting object.</p>
 </div>
 </div>
@@ -8477,7 +8497,7 @@ We will start with simple correlation, linear and non-linear regression and work
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">x2</span> <span class="o">=</span> <span class="n">PolynomialFeatures</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">include_bias</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">df2</span><span class="o">.</span><span class="n">Year</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span> <span class="c1"># Transform the independent variable Year for a second degree polynomial regression</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">x2</span> <span class="o">=</span> <span class="n">PolynomialFeatures</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">include_bias</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">df2</span><span class="o">.</span><span class="n">Year</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span> <span class="c1"># Create a new variable x2 which is the Year variable transformed for a second degree polynomial regression. The "reshape" function is used to convert the Year variable into a 2D array, which is required by the PolynomialFeatures function.</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="n">x2</span><span class="p">)</span> <span class="c1"># Inspect the resulting dataframe</span>
 </pre></div>
@@ -8517,7 +8537,7 @@ We will start with simple correlation, linear and non-linear regression and work
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">polyreg1</span> <span class="o">=</span> <span class="n">smf</span><span class="o">.</span><span class="n">ols</span><span class="p">(</span><span class="s1">'df2.pCO2 ~ x2'</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">df2</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span> <span class="c1"># Regression of second degree polynomial</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="n">polyreg1</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">polyreg1</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span> <span class="c1"># Inspect the regression summary to check the strength and the significance of the polynomial model</span>
 </pre></div>
 </div>
 </div>
@@ -8530,7 +8550,7 @@ We will start with simple correlation, linear and non-linear regression and work
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p><strong>Question 13:</strong> How do the statistics of this polynomial model compare to those of the linear model you calculated before? Which model better describes the data? Which statistical metrics do you use to compare between them?</p>
+<p><strong>Question 13:</strong> How do the statistics of this polynomial model compare to those of the linear model you calculated before in Exercise 7? Which model better describes the data? Which statistical metrics do you use to compare between them?</p>
 </div>
 </div>
 </div>
@@ -8569,7 +8589,7 @@ We will start with simple correlation, linear and non-linear regression and work
 <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">df2</span><span class="o">.</span><span class="n">Year</span><span class="p">,</span> <span class="n">df2</span><span class="o">.</span><span class="n">pCO2</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">'red'</span><span class="p">,</span> <span class="n">marker</span> <span class="o">=</span> <span class="s1">'+'</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">'Year'</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">'pCO2 (ppmV)'</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">df2</span><span class="o">.</span><span class="n">Year</span><span class="p">,</span> <span class="n">polyreg1</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">polyreg1</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">df2</span><span class="o">.</span><span class="n">Year</span> <span class="o">+</span> <span class="n">polyreg1</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">*</span> <span class="n">df2</span><span class="o">.</span><span class="n">Year</span> <span class="o">**</span> <span class="mi">2</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">'blue'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">df2</span><span class="o">.</span><span class="n">Year</span><span class="p">,</span> <span class="n">polyreg1</span><span class="o">.</span><span class="n">params</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">polyreg1</span><span class="o">.</span><span class="n">params</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">df2</span><span class="o">.</span><span class="n">Year</span> <span class="o">+</span> <span class="n">polyreg1</span><span class="o">.</span><span class="n">params</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">*</span> <span class="n">df2</span><span class="o">.</span><span class="n">Year</span> <span class="o">**</span> <span class="mi">2</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">'blue'</span><span class="p">)</span> <span class="c1"># Plot the second degree polynomial regression line on top of the data. The first coefficient is the intercept, the second is the linear term, and the third is the quadratic term.</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span> <span class="c1"># Show the plot</span>
 </pre></div>
 </div>
@@ -8583,7 +8603,8 @@ We will start with simple correlation, linear and non-linear regression and work
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p><strong>Exercise 8:</strong> I think we all agree that this result is an improvement, but maybe we can do better. Repeat the process you went through to estimate and plot the second order polynomial regression through the pCO2 dataset, but now create third and fourth order polynomials. Print the statistics for these models and plot them all together on top of the pCO2 data. Again: watch out how you name your objects and think carefully before you copy and paste code. Use the code cell below:</p>
+<p><strong>Exercise 8:</strong> I think we all agree that this result is an improvement, but maybe we can do better. Repeat the process you went through to estimate and plot the second order polynomial regression through the pCO2 dataset, but now create third and fourth order polynomials. Print the statistics for these models and plot them all together on top of the pCO2 data. Again: watch out how you name your objects and think carefully before you copy and paste code. Use the code cell below.</p>
+<p><strong>Hint:</strong> To change the number of terms in the polynomial function, you have to change the first term in the <code>PolynomialFeatures</code> function.</p>
 </div>
 </div>
 </div>
@@ -8597,7 +8618,7 @@ We will start with simple correlation, linear and non-linear regression and work
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Transform the independent variable Year for a third and fourth degree polynomial regression</span>
 
-<span class="c1"># Create regressions for the third and fourth degree polynomials</span>
+<span class="c1"># Create regressions for the third and fourth degree polynomial models</span>
 
 <span class="c1"># Print summaries of third and fourth degree polynomial models</span>
 
@@ -8659,9 +8680,9 @@ We will start with simple correlation, linear and non-linear regression and work
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h2 id="Part-4:-Exponential-regression">Part 4: Exponential regression<a class="anchor-link" href="#Part-4:-Exponential-regression">¶</a></h2><p>We will now briefly look at the pCO2 trend since 1850 using another type of regression model: exponential regression. We have discussed this type of regression in the lectures, but as a reminder you will find the general function for exponential regression models below:</p>
-<p>$(y = c * e^{bx})$</p>
+<p>$y = c * e^{bx}$</p>
 <p>However, we need to transform this function into its linear form to be able to use OLS. We can do this by taking the natural logarithm on both sides of the equation:</p>
-<p>$(log{(y)} = log{(c)} + b * x)$</p>
+<p>$log{(y)} = log{(c)} + b * x$</p>
 <p>Now this is just a simple linear regression of the form $(y = a + bx)$, but with $y$ replaced by $log{(y)}$ and $a$ by $log{(c)}$. To use it, we first need to transform our dependent variable (pCO2) to its natural logarithm. For that, we need to import the <code>log()</code> function from the <code>numpy</code> package. After the transformation of our pCO2 variable, we can apply the OLS function to perform the linear regression. This code should look quite familiar to you now.</p>
 </div>
 </div>
@@ -8715,7 +8736,7 @@ We will start with simple correlation, linear and non-linear regression and work
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p><strong>Exercise 9:</strong> From the regression results, you can now calculate the parameters of the exponental function ($(y = c * e^{bx})$). Use the code cell below to calculate the parameters and plot the result of the exponential regression on top of the pCO2 data.</p>
+<p><strong>Exercise 9:</strong> From the regression results, you can now calculate the parameters of the exponental function ($y = c * e^{bx}$). Use the code cell below to calculate the parameters and plot the result of the exponential regression on top of the pCO2 data.</p>
 <p>Tip: The <code>numpy</code> package contains the function <code>np.exp</code> which can be used to calculate e<sup>x</sup> to convert back from the natural logarithm</p>
 </div>
 </div>
@@ -8815,13 +8836,15 @@ We will start with simple correlation, linear and non-linear regression and work
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Create a new variable that is the natural logarithm of the modified pCO2 variable</span>
 
-<span class="c1"># Perform the exponential regression in its linearized form</span>
+<span class="c1"># Perform the 'exponential' regression in its linearized form</span>
 
 <span class="c1"># Print the regression summary</span>
 
 <span class="c1"># Calculate the parameter c by taking the natural exponent</span>
 
 <span class="c1"># Plot the exponential model on top of the pCO2 data</span>
+
+<span class="c1"># When plotting this exponential model on the same axes as the data, we need to be careful that we add the minimum values back to the x- and y-axes, so that the model is plotted in the correct position relative to the data.</span>
 </pre></div>
 </div>
 </div>
