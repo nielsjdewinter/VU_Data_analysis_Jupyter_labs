@@ -7548,7 +7548,7 @@ Statistics and Data Analysis Course</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p><strong>Exercise 1:</strong> In the code box below, load the packages <code>numpy</code>, <code>pyplot</code> and <code>preprocessing</code> (found in the <code>sklearn</code> package) and import the functions <code>PCA</code> (from <code>sklearn.decomposition</code>) and <code>loadmat</code> (from <code>scipy.io</code>).</p>
+<p><strong>Exercise 1:</strong> In the code box below, load the packages <code>numpy</code>, <code>pandas</code>, <code>pyplot</code> and <code>preprocessing</code> (found in the <code>sklearn</code> package) and import the functions <code>PCA</code> (from <code>sklearn.decomposition</code>) and <code>loadmat</code> (from <code>scipy.io</code>).</p>
 </div>
 </div>
 </div>
@@ -7599,7 +7599,7 @@ Statistics and Data Analysis Course</p>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p>The <code>lab05</code> file contains data on drainage ($m^{3}/s$), water temperature ($°C$), and dissolved chlorophyll ($μg/l$), nitrogen ($mg/l$) and phosphate ($mg/l$) in the Rhine at Lobith, where the Rhine enters the Netherlands, starting from 1989.</p>
-<p>When loading a <code>.mat</code> file <code>scipy.io</code> returns a dictionary with variable names as keys, and matrices as values. The data matrix contains all these variables (column 1: temperature, column 2: drainage, column 3: chlorophyll, column 4: nitrogen, column 5: phosphate). You can for example print this matrix using the following command:</p>
+<p>When loading a <code>.mat</code> file <code>scipy.io</code> returns a dictionary with variable names as keys, and matrices as values. The <code>data</code> matrix contains all these variables (column 1: temperature, column 2: drainage, column 3: chlorophyll, column 4: nitrogen, column 5: phosphate). You can for example print this matrix using the following command:</p>
 </div>
 </div>
 </div>
@@ -7612,6 +7612,34 @@ Statistics and Data Analysis Course</p>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">lab05</span><span class="p">[</span><span class="s1">'data'</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=59b3549c">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>But you know by now that we can also inspect our dataset and label it using <code>pandas</code> commands:</p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=08c29465">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">variables</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'temperature'</span><span class="p">,</span> <span class="s1">'drainage'</span><span class="p">,</span> <span class="s1">'chlorophyl'</span><span class="p">,</span> <span class="s1">'nitrogen'</span><span class="p">,</span> <span class="s1">'phosphate'</span><span class="p">]</span> <span class="c1"># Give names to the variables</span>
+<span class="n">samples</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'Sample_'</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">lab05</span><span class="p">[</span><span class="s1">'data'</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])]</span> <span class="c1"># Number our samples. The "shape" method let's us easily find the number of samples in the data matrix</span>
+<span class="n">lab05_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">lab05</span><span class="p">[</span><span class="s1">'data'</span><span class="p">],</span> <span class="n">index</span> <span class="o">=</span> <span class="n">samples</span><span class="p">,</span> <span class="n">columns</span> <span class="o">=</span> <span class="n">variables</span><span class="p">)</span> <span class="c1"># Create a pandas dataframe</span>
+<span class="n">lab05_df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span> <span class="c1"># Visualize the first rows with labels</span>
 </pre></div>
 </div>
 </div>
@@ -7636,7 +7664,7 @@ Statistics and Data Analysis Course</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p><strong>Question 1:</strong> After reading the information about the variables and their units in this dataset above, can you think of a potential issue we will encounter when combining all these variables in one data analysis?</p>
+<p><strong>Question 1:</strong> After reading the information about the variables and their units in this dataset above and visualizing the data, can you think of a potential issue we will encounter when combining all these variables in one data analysis?</p>
 </div>
 </div>
 </div>
@@ -7684,7 +7712,7 @@ Statistics and Data Analysis Course</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>Note that the syntax we use here to do our preprocessing is very similar to how we ran our PCA in Lab04 (have a look back at that lab in case you forgot!): We first define a preprocessing routine and then apply that routine on our data using the <code>.fit_transform()</code>-syntax.</p>
+<p>Note that the syntax we use here to do our preprocessing is very similar to how we ran our PCA in Lab04 (have a look back at that lab in case you forgot!): We first define a preprocessing routine and then apply that routine on our data using the <code>.fit_transform()</code>-syntax. In Lab03 we used a different function (<code>zscore</code>) from the <code>stats</code> package to normalize our data. The <code>StandardScaler</code> function we use here comes from a different package: <code>sklearn</code>. The two functions perform in roughly the same way, so for the purposes of this course you can use them interchangeably.</p>
 </div>
 </div>
 </div>
@@ -7717,7 +7745,7 @@ Statistics and Data Analysis Course</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p><strong>Exercise 2:</strong> In lab 04, we already implemented a PCA. Have a look in lab 04 which commands we used to execute a PCA. Then apply these commands to the standardized data matrix. Don't forget to extract the <em>scores</em>, <em>loadings</em> and <em>eigenvalues</em> from the result.</p>
+<p><strong>Exercise 2:</strong> In lab04, we already implemented a PCA. Have a look in lab 04 which commands we used to execute a PCA. Then apply these commands to the standardized data matrix. Don't forget to extract the <em>scores</em>, <em>loadings</em> and <em>eigenvalues</em> from the result.</p>
 </div>
 </div>
 </div>
@@ -7729,7 +7757,11 @@ Statistics and Data Analysis Course</p>
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span> 
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># We first call the PCA function to create our PCA object</span>
+<span class="c1"># Now we apply the new pca object to our data to get our PCA scores</span>
+<span class="c1"># Create a new object with loadings in columns ordered from highest to least amount of explained variance.</span>
+<span class="c1"># Calculate the percentage of variance explained by each principle component</span>
+<span class="c1"># Print the resulting percentages (rounded to 2 decimals if you like)</span>
 </pre></div>
 </div>
 </div>
@@ -7754,7 +7786,15 @@ Statistics and Data Analysis Course</p>
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span> 
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Create a vector with numbers for the components</span>
+<span class="c1"># Plot scatter plot of eigenvalues for each component.</span>
+<span class="c1"># Set the limits for the horizontal axis</span>
+<span class="c1"># Set the limits for the vertical axis</span>
+<span class="c1"># Loop through your vector listing the percentage of explained variance</span>
+<span class="c1"># Label the percentages, rounded down to 2 decimals for easier interpretation</span>
+<span class="c1"># Provide label for horizontal axis</span>
+<span class="c1"># Provide label for vertical axis</span>
+<span class="c1"># Set the plot title</span>
 </pre></div>
 </div>
 </div>
@@ -7872,11 +7912,10 @@ Statistics and Data Analysis Course</p>
 <span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">color</span> <span class="o">=</span> <span class="s1">'black'</span><span class="p">)</span> <span class="c1"># Draw a black horizontal line indicating a loading of zero.</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">6</span><span class="p">])</span> <span class="c1"># Set the limits on the horizontal axis</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">([</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span> <span class="c1"># Set the limits on the vertical axis</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">[</span><span class="s1">'temperature'</span><span class="p">,</span> <span class="s1">'drainage'</span><span class="p">,</span> <span class="s1">'chlorophyll'</span><span class="p">,</span> <span class="s1">'N'</span><span class="p">,</span> <span class="s1">'P'</span><span class="p">])</span> <span class="c1"># Add names for the variables</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">variables</span><span class="p">)</span> <span class="c1"># Add names for the variables</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">'PC1'</span><span class="p">)</span> <span class="c1"># Provide a title</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">'Variables'</span><span class="p">)</span> <span class="c1"># Provide horizonal axis title</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">'PC loading'</span><span class="p">)</span> <span class="c1"># Provide vertical axis title</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span> <span class="c1"># Show the plot</span>
 </pre></div>
 </div>
 </div>
@@ -7901,7 +7940,25 @@ Statistics and Data Analysis Course</p>
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span> 
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="c1"># Create a bar chart with numbers of variables on the horizontal axis and loadings on the vertical axis</span>
+<span class="c1"># Draw a black horizontal line indicating a loading of zero.</span>
+<span class="c1"># Set the limits on the horizontal axis</span>
+<span class="c1"># Set the limits on the vertical axis</span>
+<span class="c1"># Add names for the variables</span>
+<span class="c1"># Provide a title</span>
+<span class="c1"># Provide horizonal axis title</span>
+<span class="c1"># Provide vertical axis title</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="c1"># Create a bar chart with numbers of variables on the horizontal axis and loadings on the vertical axis</span>
+<span class="c1"># Draw a black horizontal line indicating a loading of zero.</span>
+<span class="c1"># Set the limits on the horizontal axis</span>
+<span class="c1"># Set the limits on the vertical axis</span>
+<span class="c1"># Add names for the variables</span>
+<span class="c1"># Provide a title</span>
+<span class="c1"># Provide horizonal axis title</span>
+<span class="c1"># Provide vertical axis title</span>
 </pre></div>
 </div>
 </div>
@@ -7981,7 +8038,54 @@ Statistics and Data Analysis Course</p>
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span> 
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Create correlation matrices</span>
+<span class="c1"># Create a correlation matrix of the original data</span>
+<span class="c1"># Create a pandas dataframe of the preprocessed data</span>
+<span class="c1"># Create a correlation matrix of the preprocessed data</span>
+<span class="c1"># Create a pandas dataframe of the transformed data</span>
+<span class="c1"># Create a correlation matrix of the transformed data</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=e6412054">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Plot the correlation matrices with colors representing the degree of correlation:</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=1210ef99">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Plot the correlation matrices with colors representing the degree of correlation:</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=114f773a">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Plot the correlation matrices with colors representing the degree of correlation:</span>
 </pre></div>
 </div>
 </div>
@@ -7994,7 +8098,7 @@ Statistics and Data Analysis Course</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p><strong>Question 7:</strong> Do the lots above show the outcome you expect?</p>
+<p><strong>Question 8:</strong> Do the lots above show the outcome you expect?</p>
 </div>
 </div>
 </div>
@@ -8005,7 +8109,7 @@ Statistics and Data Analysis Course</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p><strong>Answer 7:</strong></p>
+<p><strong>Answer 8:</strong></p>
 </div>
 </div>
 </div>
@@ -8042,7 +8146,6 @@ Statistics and Data Analysis Course</p>
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">'PC3'</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">'Days since January 1, 1989'</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">'PC score'</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span> <span class="c1"># Show the plot</span>
 </pre></div>
 </div>
 </div>
@@ -8055,7 +8158,7 @@ Statistics and Data Analysis Course</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p><strong>Question 8:</strong> Based on the plots you just created, do you still agree with the interpretation of the pronciple components you made in your answer to <strong>Question 6</strong>?</p>
+<p><strong>Question 9:</strong> Based on the plots you just created, do you still agree with the interpretation of the pronciple components you made in your answer to <strong>Question 7</strong>?</p>
 </div>
 </div>
 </div>
@@ -8066,7 +8169,7 @@ Statistics and Data Analysis Course</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p><strong>Answer 8:</strong></p>
+<p><strong>Answer 9:</strong></p>
 </div>
 </div>
 </div>
