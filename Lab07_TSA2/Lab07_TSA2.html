@@ -7522,7 +7522,7 @@ Statistics and Data Analysis Course</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Introduction">Introduction<a class="anchor-link" href="#Introduction">¶</a></h2><p>In this lab, we will continue to experiment with <strong>time series analysis</strong>. Last lab, we have focused on the occurrence of periodic events and changes. This time, we will take our data analysis one step further by looking at the frequency and probability of events that do not occur at a regular interval. We call these events <strong>extreme events</strong> and they play an important role in society.</p>
+<h2 id="Introduction">Introduction<a class="anchor-link" href="#Introduction">¶</a></h2><p>In this lab, we will continue to experiment with <strong>time series analysis</strong>. Last lab, we have focused on the occurrence of periodic events and changes. This time, we will take our data analysis one step further by looking at the frequency and probability of events that do not occur at a regular interval. We call these events <strong>extreme events</strong> and they play an important role in science and society.</p>
 </div>
 </div>
 </div>
@@ -7558,7 +7558,7 @@ Statistics and Data Analysis Course</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p><strong>Exercise 2:</strong> Now use the <code>loadmat</code> function to load the data file <code>lab07.mat</code> (Tip: you've done this before in <strong>Lab05</strong>)</p>
+<p><strong>Exercise 2:</strong> Now use the <code>loadmat</code> function to load the data file <code>lab07.mat</code> (You've done this before in <strong>Lab05</strong>)</p>
 </div>
 </div>
 </div>
@@ -7623,7 +7623,7 @@ Statistics and Data Analysis Course</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>In this dataset, the key <code>t</code> indicates the time vector and the key <code>data</code> contains the values of our dependent variable. Together they make up our time series. We can parse the time and data vectors in 1 matrix to make it easier to work with them. Study the code below to understand what it does and then inspect the end result using a <code>print()</code> statement.</p>
+<p>In this dataset, the key <code>t</code> indicates the time vector and the key <code>data</code> contains the values of our dependent variable. Together they make up our time series. We can parse the time and data vectors in 1 matrix using <code>pandas</code> to make it easier to work with them. Study the code below to understand what it does and then inspect the end result using a <code>print()</code> statement. This should seem familiar now.</p>
 </div>
 </div>
 </div>
@@ -7636,20 +7636,7 @@ Statistics and Data Analysis Course</p>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">data</span><span class="p">[</span><span class="s1">'t'</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="s1">'data'</span><span class="p">]),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">'t'</span><span class="p">,</span> <span class="s1">'data'</span><span class="p">])</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=cff4ecc4">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span> 
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -7662,7 +7649,7 @@ Statistics and Data Analysis Course</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>The <strong>lab07</strong> file contains data on daily drainage of the Dinkel river in Twente (in $m^3/s$). The data covers 12 years, from 1988 until 1999. The variable <code>data</code> contains the drainage values. The variable <code>t</code> contains the day number since January 1, 1988. The variable <code>X</code> will be used later in the exercise.</p>
+<p>The <strong>lab07</strong> file contains data on daily drainage of the Dinkel river in Twente (in $m^3/s$). The data covers 12 years, from 1988 until 1999. The variable <code>data</code> contains the drainage values. The variable <code>t</code> contains the day counted since January 1, 1988. The variable <code>X</code> will be used later in the exercise.</p>
 </div>
 </div>
 </div>
@@ -7685,9 +7672,35 @@ Statistics and Data Analysis Course</p>
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span> 
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Plot time series</span>
+<span class="c1"># Create plot</span>
+<span class="c1"># Plot the drainage data variable against variable t</span>
+<span class="c1"># Label x axis</span>
+<span class="c1"># Label y axis</span>
 </pre></div>
 </div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=4bd73323">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p><strong>Question 1:</strong> Describe this dataset. What are its characteristics? Which aspects of it stand out to you?</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=06d11be7">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p><strong>Answer 1:</strong></p>
 </div>
 </div>
 </div>
@@ -7809,7 +7822,7 @@ Statistics and Data Analysis Course</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p><strong>Question 1:</strong> For which frequency does the variance peak? What is the corresponding wavelength and what does this represent?</p>
+<p><strong>Question 2:</strong> For which frequency does the variance peak? What is the corresponding wavelength and what does this represent?</p>
 </div>
 </div>
 </div>
@@ -7820,7 +7833,7 @@ Statistics and Data Analysis Course</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p><strong>Answer 1:</strong></p>
+<p><strong>Answer 2:</strong></p>
 </div>
 </div>
 </div>
@@ -7844,6 +7857,7 @@ Statistics and Data Analysis Course</p>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">bins</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">X</span> <span class="o">-</span> <span class="mf">0.5</span><span class="p">,</span> <span class="n">X</span> <span class="o">+</span> <span class="mf">0.5</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">bins</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -7872,7 +7886,6 @@ Statistics and Data Analysis Course</p>
 <span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">bins</span> <span class="o">=</span> <span class="n">bins</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">'Daily discharge (m3/s)'</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">'Number of days'</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span> <span class="c1"># Show the plot</span>
 </pre></div>
 </div>
 </div>
@@ -7885,7 +7898,7 @@ Statistics and Data Analysis Course</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p><strong>Question 2:</strong> What do you think about the number of low and and high discharge days? Is the pattern in the histogram as you expected?</p>
+<p><strong>Question 3:</strong> What do you think about the number of low and and high discharge days? Is the pattern in the histogram as you expected?</p>
 </div>
 </div>
 </div>
@@ -7896,7 +7909,7 @@ Statistics and Data Analysis Course</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p><strong>Answer 2:</strong></p>
+<p><strong>Answer 3:</strong></p>
 </div>
 </div>
 </div>
@@ -7907,7 +7920,7 @@ Statistics and Data Analysis Course</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>Now, we will calculate frequencies of probability dividing the histogram by the total number of days. We first use the function <code>histogram</code> (<code>numpy</code>) to calculate the histogram statistics, and then divided it by the total number of days:</p>
+<p>Now, we will calculate frequencies of probability dividing the histogram by the total number of days. We first use the function <code>histogram</code> (<code>numpy</code>) to calculate the histogram statistics, and then divide it by the total number of days:</p>
 </div>
 </div>
 </div>
@@ -7921,6 +7934,7 @@ Statistics and Data Analysis Course</p>
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">hist_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">histogram</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">bins</span> <span class="o">=</span> <span class="n">bins</span><span class="p">)</span>
 <span class="n">N</span> <span class="o">=</span> <span class="n">hist_data</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">/</span> <span class="nb">float</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">data</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -7942,10 +7956,10 @@ Statistics and Data Analysis Course</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [3]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span> 
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Plot frequency distribution in line graph</span>
 </pre></div>
 </div>
 </div>
@@ -8046,7 +8060,7 @@ Statistics and Data Analysis Course</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>Now we can calculate the modelled probability per bin:</p>
+<p>Now we can calculate the modelled probability per bin by subtracting the two cumulative probability vectors from each other:</p>
 </div>
 </div>
 </div>
@@ -8088,7 +8102,6 @@ Statistics and Data Analysis Course</p>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">36.5</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">p</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">'r'</span><span class="p">)</span> <span class="c1"># Plot the modelled Gumbel distribution</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">'Daily discharge (m3/s)'</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">'Frequency/Probability'</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span> <span class="c1"># Show the plot</span>
 </pre></div>
 </div>
 </div>
@@ -8101,7 +8114,7 @@ Statistics and Data Analysis Course</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p><strong>Question 3:</strong> What do you think about the fit of our Gumbel distribution model to the data?</p>
+<p><strong>Question 4:</strong> What do you think about the fit of our Gumbel distribution model to the data?</p>
 </div>
 </div>
 </div>
@@ -8112,7 +8125,7 @@ Statistics and Data Analysis Course</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p><strong>Answer 3:</strong></p>
+<p><strong>Answer 4:</strong></p>
 </div>
 </div>
 </div>
@@ -8136,6 +8149,7 @@ Statistics and Data Analysis Course</p>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">p_lowerthan25</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="p">(</span><span class="mi">25</span> <span class="o">-</span> <span class="n">mu</span><span class="p">)</span> <span class="o">/</span> <span class="n">alfa</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">p_lowerthan25</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -8148,7 +8162,7 @@ Statistics and Data Analysis Course</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p><strong>Exercise 8:</strong> Sicne we know that probabilities always have a total sum of 1 (or 100% chance), you can easily figure out what the probability of a discharge higher than 25 (<code>p_higherthan25</code>) then must be. Calculate it in the box below:</p>
+<p><strong>Exercise 8:</strong> Since we know that probabilities always have a total sum of 1 (or 100% chance), you can easily figure out what the probability of a discharge higher than 25 (<code>p_higherthan25</code>) then must be. Calculate it in the box below:</p>
 </div>
 </div>
 </div>
@@ -8198,7 +8212,7 @@ Statistics and Data Analysis Course</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>To check whether our model (the Gumbel distribution) of the frequency of flood events in the Dinkel river gives us a good prediction of the recurrence interval, we can compare this result with the observed frequency of discharges larger than 25 $m^3/s$ by counting the number of values larger than 25 $m^3/s$ in the data. Use the len and np.where functions to do this:</p>
+<p>To check whether our model (the Gumbel distribution) of the frequency of flood events in the Dinkel river gives us a good prediction of the recurrence interval, we can compare this result with the observed frequency of discharges larger than 25 $m^3/s$ by counting the number of values larger than 25 $m^3/s$ in the data. We can use the len and np.where functions to do this:</p>
 </div>
 </div>
 </div>
@@ -8212,6 +8226,7 @@ Statistics and Data Analysis Course</p>
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">Dischargeover25</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">data</span> <span class="o">&gt;</span> <span class="mi">25</span><span class="p">))</span> <span class="c1"># Count the number of occurrences with a discharge over 25 m3/s in the data</span>
 <span class="n">p_Dischargeover25</span> <span class="o">=</span> <span class="n">Dischargeover25</span> <span class="o">/</span> <span class="nb">float</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">data</span><span class="p">))</span> <span class="c1"># Divide by the total number of days in the dataset to obtain the probability</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">p_Dischargeover25</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -8249,7 +8264,7 @@ Statistics and Data Analysis Course</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p><strong>Question 4:</strong> Now compare the recurrence time of discharge larger than 25 $m^3$ estimated from the Gumbel distribution (<code>T_higherthan25</code>) with the observed recurrence time (<code>T_higherthan25_obs</code>). How do they compare and why do you think this is the case?</p>
+<p><strong>Question 5:</strong> Now compare the recurrence time of discharge larger than 25 $m^3$ estimated from the Gumbel distribution (<code>T_higherthan25</code>) with the observed recurrence time (<code>T_higherthan25_obs</code>). How do they compare and why do you think this is the case?</p>
 </div>
 </div>
 </div>
@@ -8260,7 +8275,7 @@ Statistics and Data Analysis Course</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p><strong>Answer 4:</strong></p>
+<p><strong>Answer 5:</strong></p>
 </div>
 </div>
 </div>
@@ -8271,7 +8286,7 @@ Statistics and Data Analysis Course</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p><strong>Question 5:</strong> It turns out that low frequency events (with a high recurrence interval) are almost always harder to predict than events that occur more frequenty. Why do you think this is the case? Can you think of a solution to make a better model for the discharge of the Dinkel river and for these type of event in general? What is the most important thing we can do to better understand these distributions?</p>
+<p><strong>Question 6:</strong> It turns out that low frequency events (with a high recurrence interval) are almost always harder to predict than events that occur more frequenty. Why do you think this is the case? Can you think of a solution to make a better model for the discharge of the Dinkel river and for these type of event in general? What is the most important thing we can do to better understand these distributions?</p>
 </div>
 </div>
 </div>
@@ -8282,7 +8297,7 @@ Statistics and Data Analysis Course</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p><strong>Answer 5:</strong></p>
+<p><strong>Answer 6:</strong></p>
 </div>
 </div>
 </div>

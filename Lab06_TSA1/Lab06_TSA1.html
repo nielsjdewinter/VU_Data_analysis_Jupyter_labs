@@ -7534,7 +7534,7 @@ Statistics and Data Analysis Course</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>There are many forms of data analysis that can be applied to interpret time series. In this lab, we will experience with <strong>Fourier analysis</strong>, or the analysis of the <em>frequencies</em> that make up a time series. <em>Fourier analysis</em> is based on the <strong>Fourier theorem</strong>, the mathematical discovery that any periodic time series can be decomposed into a combination of sine and cosine functions. This sounds complicated, and you do not need to know all the ins and outs of how this works. However, it can help you to have a visual understanding of how <em>Fourier transform</em> works. The video below from Youtuber <em>3Blue1Brown</em> explains the theory in a very nice visual way. You can watch it later if you want to learn some more about <em>Fourier analysis</em> so you don't lose time during the computer practical session where you can ask questions about the exercises below.</p>
+<p>There are many forms of data analysis that can be applied to interpret time series. In this lab, we will experience with <strong>Fourier analysis</strong>, or the analysis of the <em>frequencies</em> that make up a time series. <em>Fourier analysis</em> is based on the <strong>Fourier theorem</strong>, the mathematical discovery that any periodic time series can be decomposed into a combination of sine and cosine functions. This sounds complicated, and you do not need to know all the ins and outs of how this works. However, it can help you to have a visual understanding of how <em>Fourier transform</em> works. The video below from Youtuber <em>3Blue1Brown</em> explains the theory in a very clear visual way. You can watch it later if you want to learn some more about <em>Fourier analysis</em> so you don't lose time during the computer practical session where you can ask questions about the exercises below.</p>
 </div>
 </div>
 </div>
@@ -7549,10 +7549,13 @@ Statistics and Data Analysis Course</p>
 <div class="highlight hl-ipython3"><pre><span></span><span class="o">%%HTML</span>
 <span class="p">&lt;</span><span class="nt">div</span> <span class="na">align</span><span class="o">=</span><span class="s">"center"</span><span class="p">&gt;</span>
     <span class="p">&lt;</span><span class="nt">iframe</span> <span class="na">width</span><span class="o">=</span><span class="s">"560"</span> <span class="na">height</span><span class="o">=</span><span class="s">"315"</span>
-    <span class="na">src</span><span class="o">=</span><span class="s">"https://www.youtube.com/embed/spUNpyF58BY"</span><span class="p">&gt;</span>
+    <span class="na">src</span><span class="o">=</span><span class="s">"https://www.youtube.com/embed/spUNpyF58BY?si=EjuWg5-zXda3j-GE"</span><span class="p">&gt;</span>
     allowfullscreen
     <span class="p">&lt;/</span><span class="nt">iframe</span><span class="p">&gt;</span>
 <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+
+# If the embedding does not work, you can simply copy the following link in your browser:
+# https://www.youtube.com/watch?v=spUNpyF58BY
 </pre></div>
 </div>
 </div>
@@ -7577,16 +7580,20 @@ Statistics and Data Analysis Course</p>
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Make sure our figures show up in Jupyter</span>
-<span class="o">%</span><span class="k">matplotlib</span> inline
-<span class="c1"># Import packages</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">random</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">signal</span>
-<span class="kn">from</span> <span class="nn">scipy.interpolate</span> <span class="kn">import</span> <span class="n">interp1d</span>
+<div class="highlight hl-ipython3"><pre><span></span> 
 </pre></div>
 </div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=c1341266">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p><strong>WARNING:</strong> In this lab, we will generate a few time series ourselves. The Python objects we will use look very much alike but they are different, so be very careful with the names you give to your objects. You can quite easily fail a task in the exercises below by calling the wrong object because its name is confusing.</p>
 </div>
 </div>
 </div>
@@ -7597,7 +7604,7 @@ Statistics and Data Analysis Course</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Generating-signals">Generating signals<a class="anchor-link" href="#Generating-signals">¶</a></h2><p>We will start easy by creating our own time series. Create a time axis t running from 0.01 to 100 in intervals of 0.01. We will generate a periodic signal y(t), a sine wave with a period of 5 and an amplitude of 2:</p>
+<h2 id="Generating-signals">Generating signals<a class="anchor-link" href="#Generating-signals">¶</a></h2><p>We will start easy by creating our own time series. Create a time axis <code>t</code> running from 0.01 to 100 in intervals of 0.01. We will generate a periodic signal <code>y</code>(<code>t</code>), a sine wave with a period of 5 and an amplitude of 2:</p>
 </div>
 </div>
 </div>
@@ -7672,6 +7679,8 @@ Statistics and Data Analysis Course</p>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Create composite time series</span>
+<span class="c1"># Define time series t2</span>
+<span class="c1"># Define the y values y2</span>
 
 <span class="c1"># Plot composite time series</span>
 </pre></div>
@@ -7697,7 +7706,7 @@ Statistics and Data Analysis Course</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p><strong>Exercise 3:</strong> Search the <code>randn</code> (in <code>numpy.random</code>) and <code>np.random.seed</code> functions in the help:</p>
+<p><strong>Exercise 3:</strong> Search for details of the <code>randn</code> (in <code>numpy.random</code>) and <code>np.random.seed</code> functions using the <code>help</code> function:</p>
 </div>
 </div>
 </div>
@@ -7774,6 +7783,7 @@ Statistics and Data Analysis Course</p>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p><strong>Exercise 5:</strong> Now plot the original time series and the time series with random noise added together to compare the result:</p>
+<p><strong>HINT:</strong> Give the new time series (including the noise) a different color to distinguish them, or use the <code>alpha</code> parameter in the plot to make the plots semi-transparent</p>
 </div>
 </div>
 </div>
@@ -7785,7 +7795,7 @@ Statistics and Data Analysis Course</p>
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span> 
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Plot original and noisy time series together for comparison</span>
 </pre></div>
 </div>
 </div>
@@ -7798,7 +7808,7 @@ Statistics and Data Analysis Course</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>Time series in Earth science often have a long-term trend (e.g. related to climate change). Let's introduce a linear trend here with a time-dependent linear component:</p>
+<p>Time series in Earth science often have a long-term trend (e.g. related to climate change). Let's introduce a linear trend here with a time-dependent linear component by multiplying the time vector with a positive factor to create a slope:</p>
 </div>
 </div>
 </div>
@@ -7810,7 +7820,7 @@ Statistics and Data Analysis Course</p>
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">yt</span> <span class="o">=</span> <span class="n">y2</span> <span class="o">+</span> <span class="mf">0.005</span> <span class="o">*</span> <span class="n">t2</span> <span class="c1"># Create yt, which adds a linear trend to y2</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">yt</span> <span class="o">=</span> <span class="n">y2</span> <span class="o">+</span> <span class="mf">0.005</span> <span class="o">*</span> <span class="n">t2</span>
 </pre></div>
 </div>
 </div>
@@ -7823,11 +7833,37 @@ Statistics and Data Analysis Course</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p><strong>Exercise 6:</strong> Plot the original and time series and the time series with a trend together for comparison.</p>
+<p><strong>Exercise 6:</strong> Plot the original and time series and the time series with a trend together for comparison. You can do this in the same plotting window or use the <code>plt.subplot()</code> function to plot the two plots side by side.</p>
 </div>
 </div>
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=78bba928">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Plot the original and time series and the time series with a trend together for comparison. </span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=55caf684">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>Examine the <code>help()</code> for the <code>periodogram</code> function (in the <code>signal</code> package) and try to understand how the function works. It is most important to understand what the output variables <code>f0</code> and <code>Pxx0</code> contain after running the following line in which the periodogram function is applied:</p>
+<p><strong>TIP:</strong> This help output can be hard to read so if you cannot get the information you need from it, it can help to search for the function online</p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=da8ef935">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7842,27 +7878,13 @@ Statistics and Data Analysis Course</p>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=57b21dbd">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=95bf22b0">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Spectral-analysis">Spectral analysis<a class="anchor-link" href="#Spectral-analysis">¶</a></h2><p>Examine the <code>help()</code> for the <code>periodogram</code> function (in the <code>signal</code> package) and try to understand every input and output variable from the following line in which the <code>periodogram</code> function is applied:</p>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=bcb9fb1b">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="n">signal</span><span class="o">.</span><span class="n">periodogram</span><span class="p">)</span>
-</pre></div>
-</div>
+<p>Run the periodogram function:</p>
 </div>
 </div>
 </div>
@@ -7931,7 +7953,7 @@ Statistics and Data Analysis Course</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p><code>y2</code> is the original time series. <code>0:1000</code> is a window for the spectral analysis, i.e. a vector with the same length as the time series. <code>1024</code> defines the number of points in the Fourier transform, which should be the next power of 2 above the signal length. <code>1</code> is the number of samples per unit of time. <code>Pxx</code> is the power spectral density (or variance) of the input signal. <code>f</code> is the frequency vector, in cycles per unit of time. <code>f</code> spans the interval between 0 and the number of samples per unit of time / 2 (here thus 0.5).</p>
+<p><code>y2</code> is the original time series. <code>0:1000</code> (created by the <code>np.arange()</code> function) is a window for the spectral analysis, i.e. a vector with the same length as the time series. The <code>nfft</code> value of <code>1024</code> defines the number of points in the Fourier transform, which should be the next power of 2 above the signal length. The <code>fs</code> value of <code>1</code> is the number of samples per unit of time. <code>Pxx</code> is the power spectral density (or variance) of the input signal. <code>f</code> is the frequency vector, in cycles per unit of time. <code>f</code> spans the interval between 0 and the number of samples per unit of time / 2 (here 1 / 2 = 0.5).</p>
 </div>
 </div>
 </div>
@@ -7958,7 +7980,6 @@ Statistics and Data Analysis Course</p>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">'Frequency'</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">'Power'</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">'Periodogram without noise'</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span> <span class="c1"># Show the plot</span>
 </pre></div>
 </div>
 </div>
@@ -7996,7 +8017,7 @@ Statistics and Data Analysis Course</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p><strong>Exercise 8:</strong> Let’s now create a time series with five times more noise. Again, calculate and plot the periodogram.</p>
+<p><strong>Exercise 8:</strong> Let’s now create a time series with five times more noise. Again, calculate and plot the periodogram of the dataset with 5 times noise alongside the periodogram of the original time series</p>
 </div>
 </div>
 </div>
@@ -8008,7 +8029,13 @@ Statistics and Data Analysis Course</p>
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span> 
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Set the seed to make the random function reproducible</span>
+<span class="c1"># Calculate 5 times the noise as before</span>
+<span class="c1"># Add the enhanced noise to the original dataset</span>
+
+<span class="c1"># Perform the Fourier Transform to create the periodogram for the new time series</span>
+
+<span class="c1"># Plot the periodogram of the original data set and the dataset with 5 times the noise</span>
 </pre></div>
 </div>
 </div>
@@ -8058,7 +8085,7 @@ Statistics and Data Analysis Course</p>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=de1367e4">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=d24458f2">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8101,7 +8128,7 @@ Statistics and Data Analysis Course</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>We can use the function <code>detrend</code> (<code>signal</code>) to get rid of a linear trend in a time series.</p>
+<p>We can use the function <code>detrend</code> (<code>signal</code> package) to get rid of a linear trend in a time series.</p>
 </div>
 </div>
 </div>
@@ -8112,7 +8139,7 @@ Statistics and Data Analysis Course</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p><strong>Exercise 10:</strong> Search for <code>detrend</code> in the <code>help()</code>, and then detrend the time series with trend and have a look at the time series before and after detrending by creating plots of both series.</p>
+<p><strong>Exercise 10:</strong> Search for <code>detrend</code> in the <code>help()</code>. Remember to call the function within the right package.</p>
 </div>
 </div>
 </div>
@@ -8130,6 +8157,17 @@ Statistics and Data Analysis Course</p>
 </div>
 </div>
 </div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=33627a50">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>Now detrend the time series with trend and have a look at the time series before and after detrending by creating plots of both series.</p>
+</div>
+</div>
+</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=2802c395">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -8138,7 +8176,37 @@ Statistics and Data Analysis Course</p>
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span> 
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">ydt</span> <span class="o">=</span> <span class="n">signal</span><span class="o">.</span><span class="n">detrend</span><span class="p">(</span><span class="n">yt</span><span class="p">)</span>
+
+<span class="c1"># Plot time series before and after detrending.</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">221</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t2</span><span class="p">,</span> <span class="n">y2</span><span class="p">)</span> 
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">'Amplitude'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">((</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">'Original'</span><span class="p">)</span>
+ 
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">222</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t2</span><span class="p">,</span> <span class="n">yt</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">((</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">'Original + trend'</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">223</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t2</span><span class="p">,</span> <span class="n">y2</span><span class="p">)</span> 
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">'Amplitude'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">'Time'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">((</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">'Original'</span><span class="p">)</span>
+ 
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">224</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t2</span><span class="p">,</span> <span class="n">ydt</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">'Time'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">((</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">'Detrended trend'</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -8162,7 +8230,7 @@ Statistics and Data Analysis Course</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p><strong>Exercise 11:</strong> Load the time series in the <code>series1.txt</code> and <code>series2.txt</code> files. The first column of the series contains age in kiloyears. The second column contains oxygen-isotope values measured on foraminifera. The datasets contain cyclicities of 100, 40 and 20 kyr. They look quite similar even though the numbers are slightly different. Plot both time series to explore their content.</p>
+<p><strong>Exercise 11:</strong> Load the time series in the <code>series1.txt</code> and <code>series2.txt</code> files. The first column of the series contains age in kiloyears. The second column contains oxygen-isotope values measured on foraminifera, which is a proxy for seawater temperature. The datasets contain cyclicities and we are interested in their periods. They look quite similar even though the numbers are slightly different. Plot both time series to explore their content.</p>
 </div>
 </div>
 </div>
@@ -8174,7 +8242,9 @@ Statistics and Data Analysis Course</p>
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span> 
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Load the dataseries</span>
+
+<span class="c1"># Plot both timeseries side by side</span>
 </pre></div>
 </div>
 </div>
@@ -8187,7 +8257,8 @@ Statistics and Data Analysis Course</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>The intervals of the time vectors are not evenly spaced. Let's use the <code>diff</code> function (<code>numpy</code>, see <code>help()</code>) to calculate the intervals of the time axis for series 1. Let’s also plot these intervals:</p>
+<p>The intervals of the time vectors are not evenly spaced. The <code>diff</code> function (<code>numpy</code>, see <code>help()</code>) calculates the differences between consecutive datapoints in a vector. If we apply it on our time vector, it shows us how the time interval changes along the vector.
+Let's calculate and plot the time intervals in the time axis for series 1:</p>
 </div>
 </div>
 </div>
@@ -8278,7 +8349,12 @@ Statistics and Data Analysis Course</p>
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span> 
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Calculate the time intervals</span>
+<span class="c1"># plot the time intervals</span>
+<span class="c1"># Calculate the minimum age</span>
+<span class="c1"># Calculate the maximum age</span>
+<span class="c1"># Calculate the mean time interval</span>
+<span class="c1"># Print the outcomes of all those calculations</span>
 </pre></div>
 </div>
 </div>
@@ -8313,7 +8389,7 @@ Statistics and Data Analysis Course</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>It would be nice to have both time series at equal intervals. In addition, it is always easier to work with a time series if the time interval is constant. In fact, many statistical techniques, such as <em>spectral analysis</em> will not work on time series which are not <strong>evenly spaced</strong>! We will try to interpolate oxygen isotope values at evenly spaced intervals to do this. We will try to keep approximately the same number of observations as the original time series (~332).</p>
+<p>It would be nice to have both time series at equal time intervals so we can directly compare their values. In addition, it is always easier to work with a time series if the time interval is constant. In fact, many statistical techniques, such as <em>spectral analysis</em> will not work on time series which are not <strong>evenly spaced</strong>! We will try to <em>interpolate</em> the oxygen isotope values in our two time series at evenly spaced intervals to do this. We will try to keep approximately the same number of observations as the original time series (~332).</p>
 </div>
 </div>
 </div>
@@ -8325,6 +8401,7 @@ Statistics and Data Analysis Course</p>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p><strong>Exercise 13:</strong> Define an evenly space time vector with a time interval that approximates the mean interval of the original time series (3 kyr), and covers the range of the original data (0-997 kyr).</p>
+<p><strong>TIP:</strong> You can use the <code>arange</code> function in the <code>numpy</code> package we used earlier in our periodogram calculations.</p>
 </div>
 </div>
 </div>
@@ -8399,7 +8476,7 @@ Statistics and Data Analysis Course</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p><strong>Exercise 14:</strong> Now use the function to interpolate series 1 and series 2, each using both the <code>linear</code> and the <code>nearest</code> method by changing the <code>kind</code> parameter.</p>
+<p><strong>Exercise 14:</strong> Now use the function to interpolate series 1 and series 2, each using both the <code>linear</code> and the <code>nearest</code> method by changing the <code>kind</code> parameter. Use the same naming convention we used above to name your new interpolated time series.</p>
 </div>
 </div>
 </div>
@@ -8411,7 +8488,9 @@ Statistics and Data Analysis Course</p>
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span> 
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Interpolating series 1 using the "nearest" criterion</span>
+<span class="c1"># Interpolating series 2 using the "linear" criterion</span>
+<span class="c1"># Interpolating series 2 using the "nearest" criterion</span>
 </pre></div>
 </div>
 </div>
@@ -8436,15 +8515,15 @@ Statistics and Data Analysis Course</p>
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">series1</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">series1</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">'blue'</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t3</span><span class="p">,</span> <span class="n">series1L</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">'red'</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t3</span><span class="p">,</span> <span class="n">series1N</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">'green'</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">'O isotope'</span><span class="p">)</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">series1</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">series1</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">'blue'</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">'Original time series'</span><span class="p">)</span> <span class="c1"># Original time series 1</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">series1</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">series1</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">'blue'</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">'Original time series'</span><span class="p">)</span> <span class="c1"># Add points to clearly mark the original data</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t3</span><span class="p">,</span> <span class="n">series1L</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">'red'</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">'Linear interpolation'</span><span class="p">)</span> <span class="c1"># Interpolated time series using linear interpolation</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t3</span><span class="p">,</span> <span class="n">series1N</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">'green'</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">'Nearest interpolation'</span><span class="p">)</span> <span class="c1"># Interpolated time series using "nearest" interpolation</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">'Oxygen isotope value'</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">'Time (kyr)'</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">((</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">((</span><span class="mi">350</span><span class="p">,</span> <span class="mi">450</span><span class="p">))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">labels</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'Original'</span><span class="p">,</span> <span class="s1">'Linear interpolation'</span><span class="p">,</span> <span class="s1">'Nearest interpolation'</span><span class="p">])</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span> <span class="c1"># Show the plot</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -8457,7 +8536,7 @@ Statistics and Data Analysis Course</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p><strong>Question 6:</strong> Have a good look at the code we used for plotting the interpolations above, and at the plot showing the results. Describe in your own words what the difference is between the two interpolation methods. Which one do you prefer and why?</p>
+<p><strong>Question 6:</strong> Have a good look at the code we used for plotting the interpolations above, and at the plot showing the results. Describe in your own words what the difference is between the two interpolation methods. You can also use the information in the <code>help</code> function for the function you used to do the interpolation. Which one do you prefer and why?</p>
 </div>
 </div>
 </div>
@@ -8502,7 +8581,7 @@ Statistics and Data Analysis Course</p>
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span> 
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Calculate and plot the periodograms:</span>
 </pre></div>
 </div>
 </div>
@@ -8537,7 +8616,8 @@ Statistics and Data Analysis Course</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p><strong>Question 8:</strong> Which are the dominant periodicities (in kyr) in the two data series? Explain how you calculated this result. Does the result surprise you? (Tip: Be careful when you calculate the period belonging to a peak in the powerspectrum, because your sampling interval is not equal to 1 kyr!)</p>
+<p><strong>Question 8:</strong> Which are the dominant periodicities (in kyr) in the two data series? Explain how you calculated this result. Does the result surprise you?</p>
+<p><strong>Tip:</strong> Be careful when you calculate the period belonging to a peak in the powerspectrum, because your sampling interval is not equal to 1 kyr!</p>
 </div>
 </div>
 </div>
